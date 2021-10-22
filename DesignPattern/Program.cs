@@ -58,6 +58,7 @@ namespace DesignPattern
 
             do {
                 novice.Attack(swordMan);
+                novice.Spell(novice.Skills[0], swordMan);
                 Console.WriteLine($"target HP : {swordMan.Hp}");
             } while(swordMan.Hp > 0);
 

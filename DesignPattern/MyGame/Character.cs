@@ -12,7 +12,7 @@ namespace DesignPattern.MyGame {
         public string status {get;  protected set; }
 
         public double atk {get; protected set; }
-        public IEnumerable<Skill> Skills { get; protected set; }
+        public List<Skill> Skills { get; protected set; }
 
         public double Hp { 
             get => hp; 
@@ -70,7 +70,7 @@ namespace DesignPattern.MyGame {
         public void Spell(Skill skill) {
 
         }
-        public void Spell(Skill skill, Character target) {
+        public virtual void Spell(Skill skill, Character target) {
 
         }
 

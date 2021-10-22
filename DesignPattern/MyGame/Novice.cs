@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DesignPattern.MyGame {
     public class Novice : Character
@@ -7,10 +8,22 @@ namespace DesignPattern.MyGame {
         {
             hp = 100;
             atk = 100;
+            MaxHp = 100;
+            Skills = new List<Skill>() {
+                new Skill()
+                {
+                    Name = "Double Attack",
+                    Attack = 800
+                }
+            };
+            
         }
 
         public override void Sit() {
-            base.Sit();
+            if(Hp < MaxHp)
+            {
+                base.Sit();
+            }
         }
 
         public override void Attack(Character target) {
@@ -24,6 +37,12 @@ namespace DesignPattern.MyGame {
                     Console.WriteLine($"Recived Exp : {Exp}");
                 }
             }
+        }
+
+        public override void Spell(Skill skill, Character target)
+        {
+            target.Hp = skill.Attack;
+            Console.WriteLine($"Attack Skill : {skill.Name} Damage : {skill.Attack}");
         }
     }
 }
